@@ -31,6 +31,36 @@ atualizarlista()
 }
 
 //Função para atualizar a lista de amigos
+function atualizarlista(){
+    const listaAmigos = document.getElementById('listaAmigos');
+
+    //limpar o conteúdo atual da lista
+    listaAmigos.innerHTML = ""; //exclui qualquer conteúdo anterior dentro do contêiner da lista
+
+    //Percorrer o array com um loop for
+    for (let i = 0; i < amigos.length; i++) {
+        const li = document.createElement('li');
+        li.textContent = amigos[i];
+        listaAmigos.appendChild(li);
+    }
+
+}
 
 
 //Função para  selecionar um amigo aleatorio 
+function sortearAmigo(){
+    //validar se há amigos disponíveis
+    if(amigos.length === 0){ //verifica se o array 'amigos' está vazio.
+alert("Não há amigos disponíveis para sortear. Adicione pelo menos um.");
+     return;
+    }
+    // gerar um índice aleatório
+    const indicealeatorio = Math.floor(Math.random() * amigos.length); // gera um numero aleatorio entre 0 y de longitude
+    
+    // pegar o nome sorteado
+    const amigoSorteado = amigos[indicealeatorio]; // usa o indicealeatorio para pegar o nome
+
+    //mostrar o resultado em HTML
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = `amigo sorteado: <strong>${amigoSorteado}</strong>`;
+}
